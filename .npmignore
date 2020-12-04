@@ -1,0 +1,8 @@
+node_modules
+src
+
+tsconfig.json
+tsconfig.build.json
+
+.eslintrc.js
+.eslintignore
