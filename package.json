@@ -1,12 +1,12 @@
 {
   "name": "@properly-typed/utils",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Utility types",
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint .",
     "build": "rimraf dist && tsc --p tsconfig.build.json",
-    "release": "yarn build && np"
+    "release": "npm run build && np"
   },
   "repository": {
     "type": "git",
