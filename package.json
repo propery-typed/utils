@@ -1,10 +1,12 @@
 {
   "name": "@properly-typed/utils",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Utility types",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "build": "rimraf dist && tsc --p tsconfig.build.json",
+    "release": "yarn build && np"
   },
   "repository": {
     "type": "git",
@@ -33,5 +35,8 @@
   },
   "peerDependencies": {
     "typescript": "^4.1.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
