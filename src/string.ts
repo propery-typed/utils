@@ -36,11 +36,15 @@ export type StringTail<
         : ''
     : string;
 
-export type StringJoin<
-  Start extends string | number,
-  End extends string | number,
-  Delimiter extends string,
-> = `${Start}${'' extends End ? '' : Delimiter}${End}`;
+export type StringJoinByDelimiter<
+  Start,
+  End,
+  Delimiter extends string = '/',
+> = Start extends string | number
+  ? End extends string | number
+    ? `${Start}${'' extends End ? '' : Delimiter}${End}`
+    : never
+  : never;
 
 export type StringLength<Base extends string> = string extends Base
   ? number

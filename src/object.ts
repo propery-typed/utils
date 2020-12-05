@@ -1,6 +1,6 @@
 import { ValidRecursionLap, PlusOne } from '@/arithmetics';
 
-import { StringBreakByDelimiter, StringJoin } from './string';
+import { StringBreakByDelimiter, StringJoinByDelimiter } from './string';
 
 export type ObjectLeaves<
   Target extends { [k: string]: any },
@@ -8,7 +8,7 @@ export type ObjectLeaves<
 > = Target extends { [k: string]: unknown }
   ? {
     [K in keyof Target]-?: K extends string | number
-      ? StringJoin<K, ObjectLeaves<Target[K], Delimiter>, Delimiter>
+      ? StringJoinByDelimiter<K, ObjectLeaves<Target[K], Delimiter>, Delimiter>
       : never
   }[keyof Target]
   : '';
@@ -30,9 +30,11 @@ export type ObjectPaths<
 > = Iteration extends ValidRecursionLap
   ? Target extends { [k: string]: unknown }
     ? keyof Target | {
-      [K in keyof Target]-?: K extends string | number
-        ? StringJoin<K, ObjectPaths<Target[K], Delimiter, PlusOne<Iteration>>, Delimiter>
-        : never
+      [K in keyof Target]-?: StringJoinByDelimiter<
+      K,
+      ObjectPaths<Target[K], Delimiter, PlusOne<Iteration>>,
+      Delimiter
+      >
     }[keyof Target]
     : never
   : string;
