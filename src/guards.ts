@@ -6,3 +6,7 @@ export type IsNever<T> = [T] extends [never] ? true : false;
 export type IsUnknown<T> = IsNever<keyof T> extends true
   ? true
   : false;
+
+export type IsDictionary<T> = T extends { [k: string]: unknown }
+  ? true
+  : false;

@@ -73,3 +73,14 @@ export type StringBreakByDelimiter<
       ? [BEFORE, AFTER]
       : never
   : [Base, ''];
+
+export type StringLastAfterDelimiter<
+  Base extends string,
+  Delimiter extends string,
+> = Base extends `${infer BEFORE}${Delimiter}${infer _}`
+  ? BEFORE extends `${infer _}${Delimiter}${infer _}`
+    ? never
+    : Base extends `${BEFORE}${Delimiter}${infer AFTER}`
+      ? StringLastAfterDelimiter<AFTER, Delimiter>
+      : never
+  : Base;
