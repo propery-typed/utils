@@ -1,6 +1,6 @@
 {
   "name": "@properly-typed/utils",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Utility types",
   "main": "dist/index.js",
   "scripts": {
@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/propery-typed/utils#readme",
   "devDependencies": {
-    "typescript": "^4.1.2",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
     "@typescript-eslint/parser": "^4.8.1",
     "eslint": "^7.14.0",
@@ -32,7 +31,8 @@
     "eslint-config-temoncher": "^2.1.2",
     "eslint-plugin-import": "^2.22.1",
     "np": "^7.0.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "typescript": "^4.1.2"
   },
   "peerDependencies": {
     "typescript": "^4.1.2"
