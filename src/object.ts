@@ -1,5 +1,4 @@
-import { ValidRecursionLap, PlusOne } from '@/arithmetics';
-
+import { ValidRecursionLap, PlusOne } from './arithmetics';
 import { StringBreakByDelimiter, StringJoinByDelimiter } from './string';
 
 export type ObjectLeaves<
@@ -13,6 +12,7 @@ export type ObjectLeaves<
   }[keyof Target]
   : '';
 
+/** ! Doesn't work with `never`, `unknown` and `any` */
 export type ObjectOmitValueByType<
   Target,
   TypeToOmit,
@@ -56,3 +56,14 @@ export type ObjectValueByPath<
             ? ObjectValueByPath<Target[F], Extract<R, string>, Delimiter>
             : never
           : never;
+
+export type ObjectMerge<
+  O1 extends { [k: string]: unknown },
+  O2 extends { [k: string]: unknown },
+> = {
+  [K in keyof O1 | keyof O2]: K extends keyof O2
+    ? O2[K]
+    : K extends keyof O1
+      ? O1[K]
+      : never
+};
