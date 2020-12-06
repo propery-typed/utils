@@ -24,7 +24,7 @@ type MergeOutputs<
     : MergeOutputs<Target, Rest, NotNamespacedPair<Key, Target>>
   : Aggregation;
 
-export type FlattenDeep<
+export type ObjectFlattenDeep<
   Target,
 > = Target extends { [k: string]: unknown }
   ? MergeOutputs<

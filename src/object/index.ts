@@ -1,5 +1,5 @@
-export * from './flatten-deep';
-export * from './flatten-preserve-keys';
+export * from './object-flatten-deep';
+export * from './object-flatten-preserve-keys';
 export * from './leaves';
 export * from './merge';
 export * from './omit-value-by-type';
