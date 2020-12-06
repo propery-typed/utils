@@ -1,4 +1,4 @@
-import { StringLastAfterDelimiter } from '@/string';
+import { LastAfterDelimiter } from '@/string';
 import { UnionToTuple } from '@/union';
 
 import { Leaves } from './leaves';
@@ -9,7 +9,7 @@ type NotNamespacedPair<
   Key,
   Target,
 > = Key extends string
-  ? { [K in StringLastAfterDelimiter<Key, '/'>]: ValueByPath<Target, Key> }
+  ? { [K in LastAfterDelimiter<Key, '/'>]: ValueByPath<Target, Key> }
   : never;
 
 type MergeOutputs<

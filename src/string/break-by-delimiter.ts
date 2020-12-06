@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-shadow, @typescript-eslint/no-unused-vars */
 
 export type StringBreakByDelimiter<
   Base extends string,

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-shadow, @typescript-eslint/no-unused-vars */
+
 export type LastAfterDelimiter<
   Base extends string,
   Delimiter extends string,

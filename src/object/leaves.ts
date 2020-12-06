@@ -1,4 +1,4 @@
-import { StringJoinByDelimiter } from '@/string';
+import { JoinByDelimiter } from '@/string';
 
 export type Leaves<
   Target extends { [k: string]: any },
@@ -6,7 +6,7 @@ export type Leaves<
 > = Target extends { [k: string]: unknown }
   ? {
     [K in keyof Target]-?: K extends string | number
-      ? StringJoinByDelimiter<K, Leaves<Target[K], Delimiter>, Delimiter>
+      ? JoinByDelimiter<K, Leaves<Target[K], Delimiter>, Delimiter>
       : never
   }[keyof Target]
   : '';
