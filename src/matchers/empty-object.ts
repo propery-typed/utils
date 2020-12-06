@@ -2,10 +2,10 @@
  * Matches empty object
  * ! `never` also matches EmptyObject
  * @example
- * // false
- * type foo = { some: string } extends EmptyObject ? true : false
  * // true
  * type bar = {} extends EmptyObject ? true : false
+ * // false
+ * type foo = { some: string } extends EmptyObject ? true : false
  * // Also true for never
  * type nev = never extends EmptyObject ? true : false;
  *
