@@ -1,9 +1,39 @@
+/**
+ * Transforms union of objects into intersection
+ * @example
+ * // foobar is of type `{ foo: string } & { bar: number }`
+ * type foobar =  UnionToIntersection<{ foo: string } | { bar: number }>;
+ *
+ * // stringBar is of type `string & { bar: number }`
+ * type stringBar =  UnionToIntersection<string | { bar: number }>;
+ *
+ * // fail is of type `never`
+ * type fail =  UnionToIntersection<string | number>;
+ */
 export type UnionToIntersection<U> = (
   U extends any ? (arg: U) => any : never
 ) extends (arg: infer I) => void
   ? I
   : never;
 
+/**
+ * Transforms union into array
+ * @example
+ * // foo is of type `[1, 2, 4]`
+ * type foo =  UnionToTuple<1 | 2 | 4>;
+ *
+ * type Model = {
+ *   foo: number;
+ *   bar: string;
+ *   fizz: {
+ *     buzz: 15;
+ *   };
+ *   some: 'some'
+ * }
+ *
+ * // ModelKeys is of type `['foo', 'bar', 'fizz', 'some']`
+ * type ModelKeys =  UnionToTuple<keyof Model>;
+ */
 export type UnionToTuple<T> = UnionToIntersection<
 (T extends any
   ? (t: T) => T

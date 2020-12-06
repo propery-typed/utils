@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars, @typescript-eslint/no-shadow */
 import { ValidNumber, MinusOne } from './arithmetics';
 
 /**
@@ -62,7 +63,6 @@ export type StringHead<
       ? StringHead<REST, To, `${Head}${FIRST_CHAR}`>
       : `${Head}${Base}`;
 
-/* eslint-disable @typescript-eslint/no-unused-vars, @typescript-eslint/no-shadow */
 export type StringBreakByDelimiter<
   Base extends string,
   Delimiter extends string,
