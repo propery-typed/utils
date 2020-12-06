@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars, @typescript-eslint/no-shadow */
-import { ArrayElementType } from './array';
+
+import { ElementType } from './array/element-type';
 
 type MaxIterations = [
   0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
@@ -29,9 +30,9 @@ type Next = NumbersArray extends [infer _, ...infer REST]
   ? [...REST, ...never[]]
   : never;
 
-export type ValidRecursionLap = ArrayElementType<MaxIterations>;
+export type ValidRecursionLap = ElementType<MaxIterations>;
 
-export type ValidNumber = ArrayElementType<NumbersArray>;
+export type ValidNumber = ElementType<NumbersArray>;
 
 export type PlusOne<N extends number> = N extends ValidNumber
   ? Next[N]
