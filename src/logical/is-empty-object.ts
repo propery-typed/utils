@@ -5,8 +5,7 @@ import { IsNever } from './is-never';
 import { Or } from './or';
 
 /**
- * Matches empty object
- * ! `never` also matches EmptyObject
+ * Checks if passed type is empty object
  * @example
  * // true
  * type bar = IsEmptyObject<{}>;
