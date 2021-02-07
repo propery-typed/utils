@@ -10,7 +10,7 @@ import { IsSpecificBoolean } from './is-specific-boolean';
  * // never
  * type nev = Not<boolean>;
  */
-export type Not<T extends boolean> = IsSpecificBoolean<T> extends true
+export type Not<T extends boolean> = IsSpecificBoolean<T> extends false
   ? never
   : T extends true
     ? false
